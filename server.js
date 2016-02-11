@@ -2,16 +2,8 @@ var express = require('express');
 var app = express();
 var port = 3000;
 
-var middleware = {
-    requireAuthentification: function(req, res, next) {
-        next();
-    },
-    logger: function(req, res, next) {
-        var date = new Date().toString();
-        console.log(req.method + '' + req.originalUrl + ' at ' + date);
-        next();
-    }
-};
+var middleware = require('./middleware.js');
+
 
 app.use(middleware.logger);
 
